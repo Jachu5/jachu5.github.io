@@ -1,0 +1,107 @@
+<h1 id="jekyll">Jekyll</h1>
+
+<p>Jekyll es un generador de web estáticas muy simple que hace que solo nos tengamos que centrar en lo importante, el contenido de nuestra página. Esta especialmente pensado para blogs y permite alojar las páginas en GitHub, por lo que todo es mucho más sencillo, la idea de permitir a la gente generar blogs usando páginas webs estáticas en HTML y además haciendo uso del control de versiones que GitHub ofrece, el resultado un sistema que elimina la complejidad de otras herramientas que requieren conociemintos mas avanzados como pueden ser WordPress o Mephisto, y nos permite editar nuestos blogs en documento de texto a través de Textile (<a href="http://es.wikipedia.org/wiki/Markdown" title="Markdown">“Markdown”</a>).</p>
+
+<p>Para saber más sobre Jekyll te recomiendo leer el post de su creados Tom Preston <a href="http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html" title="Blogging Like a Hacker">Bloggin Like a Hacker</a>.</p>
+
+<p>Si vistamos la página web de <a href="http://jekyllrb.com/" title="Jekyll">Jekyll</a> y seguimos su tutorial de isntalación, nos llevaremos la falsa sensación de que todo es muy sencillo y la verdad es que si queremos desplegar una página web fuera de nuestro equipo, es muy sencillo, pero si queremos instalarlo localmente para previsualizar nuestro trabajo las cosas se vulven un poco complicadas, por lo que voy a intentar explicar el proceso completo que llevé a cabo explicando las dudas y problemas que surgieron.</p>
+
+<h2 id="instalacin">Instalación</h2>
+
+<p>GitHub que permite alojar web públicas, es gratuito y están alojadas bajo el dominio github.io, en caso de tener una cuenta gratuita los dominios están restringidos a <strong>usuario.github.io</strong>.</p>
+
+<p>Podemos crear dos tipos de páginas web: usuario y organización, ambas son muy similiares y se despligan casi de la misma manera, las páginas de usuario están alojadas en un reposiroio exclusivo para la web y utiliza la rama <strong>master</strong> para generar el contenido, y la de proyecto están alojadas en un repositorio compartido con otro poryecto y genera el contenido a partir de la rama <strong>gh-pages</strong>.</p>
+
+<p>Vamos a utilizar una herramienta que provee GutHub llamdas <em>github-pages</em>, es una gem, es decir un paquete de Ruby, (en el siguiente apartado lo explicaremos), que nos facilitará gestionar Jekyll y sus dependencias, es decir nos va a evitar problemas de versiones al desplegar nuestra web.</p>
+
+<p>A partir de ahora vamos a seguir el tutorial que Github facilita <a href="https://help.github.com/articles/using-jekyll-with-pages/" title="GitHub Pages">GitHub Pages</a>:</p>
+
+<h3 id="requerimietos">Requerimietos:</h3>
+
+<h5 id="ruby"><strong>1. Ruby</strong>:</h5>
+
+<p>En mi caso uso Ubuntu 12.04 que ya incluye la versión 1.8 de <a href="https://www.ruby-lang.org/es/" title="Ruby">Ruby</a>, esto lo podemos comprobar en consola <code>$ ruby --version</code>.
+Jekyll necesita la versión 1.9.3 o superior por lo tanto hay que actualizarla, para evitar problemas de configuraciones y conflictos de versiones se recomienda el uso de RVM para gestionar y actualizar nuestro entorno a la hora de trabajar con Ruby, nuestra primera idea sería la de usar el package manager de Linux <code>$ apt-get </code>, pero esto nos obliga a vigilar las depencias y versiones, y sobre todo posibles conflictos entre las <a href="http://es.wikipedia.org/wiki/RubyGems" title="gems">gems</a> que utilizaremos, RVM nos evita tener que preocuparnos de todo esto y nos permite cambiar de versiones de ruby de manera rápida y sencilla trabjado en multiples entornos de Ruby autocontenidos e independientes.</p>
+
+<h6 id="instalar-rvm">Instalar RVM:</h6>
+
+<ol>
+  <li>
+    <p>Lo primero que ncesitaremos es instalar curl si aún no lo tenemos en nuestro equipo, mas info sobre curl [http://linux.about.com/od/commands/l/blcmdl1_curl.htm]: :</p>
+
+    <p><code>$ Apt-get install curl</code></p>
+  </li>
+  <li>
+    <p>Para descargar RVM:</p>
+
+    <p><code>$ url -sSL https://get.rvm.io | bash -s stable</code></p>
+
+    <p>En caso de que surjan conflitos con la firma, sigue las <a href="https://rvm.io/" title="firma RVM">instrucciones de su web</a>. Instalar RVM toma un par de minutos pero nos ahorrara mucho dolor con las dependencias, configuracion y veriones.</p>
+  </li>
+  <li>
+    <p>Ahora haciendo uso de RVM instalamos y configuramos la versión de Ruby que necesitamos:</p>
+
+    <p><code>$ RVM isntall ruby-2.0</code>
+ <code>$ RVM use ruby-2.0</code></p>
+  </li>
+  <li>
+    <p>Y sólo queda comprobar que todo ha funcionado:</p>
+
+    <p><code>$ ruby --version</code>
+ <code>ruby 2.0.xxxxx</code></p>
+  </li>
+</ol>
+
+<p>Ya tenemos instalada la versión necesaria de Ruby y ademas hemos instalado y aprendido, de manera básica, a usar RVM un gestor de entornos multiples y autocontenido Ruby para controlar las versione y dependencias que personalmene antes no conocia y he encontrado bastante útil.</p>
+
+<h5 id="bundler"><strong>2. Bundler</strong>:</h5>
+
+<p>Es un gestor de paquetes para Ruby, localiza e instala las gems necesarias y sus correspondientes versiones, es muy útil ya que evita que tengamos que gestionarlas nosotros manualmente. Simplemente es necesario crear y editar un archivo en la raiz del proyecto Ruby (en nustro caso nuestro repositorio) llamadao “Gemfile”, en el especificamos la fuente de dónde queremos descargar las gems y sus correspondientes versiones, a partir de aquí Bundler se encargará de detectar si ya están instaldas y en caso contrario procederá a hacerlo.</p>
+
+<p>Para instalar Bundler:</p>
+
+<ol>
+  <li>
+    <p>Bundler en sí es una gema, por lo tanto porcedemos a instalarlar:</p>
+
+    <p><code>$ gem install bundler</code></p>
+  </li>
+</ol>
+
+<h4 id="jekyll-1"><strong>3. Jekyll</strong>:</h4>
+
+<p>Usaremos GitHub Pages para alojar el sitio web, por lo tanto lo primero será disponer de un reposiorio en GitHub que nos permita hacerlo y clonarlo en nuestro equipo, antes ya hemos hablado de los dos tipos de páginas que podemos generar, usuario o proyecto, en este caso es de usuario por lo que recuerda trabjar en la rama master, el repositoria debe nombrarse siguiendo la siguiente nomencaltura: <strong>username.github.io</strong>, una vez creado tenemos que clonarlo en nuestro equpi.</p>
+
+<p><code>$ git clone https://github.com/username/username.github.io</code></p>
+
+<p>Para evitar la gestión de dependecias, tanto en el servidor GitHub Pages como en el equipo (Markdown, y otras dependecias de Jekyll) de manera manual seguios las recomendaciones que la página de Jekyll, asñi como GitHub, nos dá y usaremos la gema que GitHub Pages nos proporciona llamada <strong>github-pages</strong>, que instalaremos usando Bundler creando un archivo en la raiz de nuestro repositorio llamado <strong>Gemfile</strong> en el que indicamos la fuente de las gemas y las gemas que nos queremos descargar, en este caso:</p>
+
+<blockquote>
+  <p>source ‘https://rubygems.org’</p>
+</blockquote>
+
+<blockquote>
+  <p>gem ‘github-pages’</p>
+</blockquote>
+
+<h3 id="ejecutar-jekyll">Ejecutar Jekyll</h3>
+
+<p>Ya hemos terminado con todos requesitios en nuestro equipo solo nos queda probar que todo funciona y ejecutar Jekyll.</p>
+
+<p>Arrancar el servidor Jekyll es muy sencillo, lo hacemos a través de Bundler usando el comando <em>exec</em> para utilizar las gemas especificadas en el <em>Gemfile</em> que previamente hemos instalado :</p>
+
+<p><code>$ bundle exec jekyll serve</code></p>
+
+<h3 id="conclusin">Conclusión</h3>
+<p>Por ahora sólo he usado Jekyll durante unos días, lo justo para generar este blog y escribir este post, la sensación que he tenido es que la documentación disponible en la pagina de Jekyll, así como en GitHub, un poco desorganziada y durante el proceso de instalación encontré bastantes dificultades, pero el resltado tras un par de tardes de trabajo ha sido mas que satisfactorio, descubriendo el pontencial de Jekyll y bastantes herramienta como RVM que serán muy útiles.</p>
+
+<p>Aquí concluimos con el proceso de instalación y ejecución de Jekyll, en el siguiente post cubriremos como configurarlo, editar la apariencia del blog y generar contenido.</p>
+
+<h6 id="referencias">Referencias:</h6>
+
+<ul>
+  <li>Jekyll: <a href="http://jekyllrb.com/" title="Jekyll">http://jekyllrb.com/</a>.</li>
+  <li>Using Jekyll with Pages: <a href="https://help.github.com/articles/using-jekyll-with-pages/" title="Using Jekyll with Pages">https://help.github.com/articles/using-jekyll-with-pages/</a>.</li>
+  <li>Jekyll by example: <a href="https://www.andrewmunsell.com/tutorials/jekyll-by-example/tutorial" title="Jekyll by example">https://www.andrewmunsell.com/tutorials/jekyll-by-example/tutorial</a></li>
+</ul>
+

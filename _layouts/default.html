@@ -1,44 +1,61 @@
-<link href="/css/bootstrap.css" rel="stylesheet">
-<style>
-  body {
-    padding-top: 60px;
-  }
-</style>
-<link href="/css/bootstrap-responsive.css" rel="stylesheet">
+---
+layout: typo
+---
+<!doctype html>
+<html lang="{{ page.lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=0.9">
+  <meta name="description" content="{% if page.type == 'pages' %}{{ site.t[page.lang].description }}{% else %}{{ page.excerpt | strip_html | replace: "[[", " ("  | replace: "]]", ")" }}{% endif %}">
+  <title>{{page.title | strip_html}} – Sandbox</title>
+  <link rel="icon" href="/medias/design/favicon.ico" />
+  {% assign posts=site.posts | where:"date", page.date %}
+  {% for post in posts %}
+    {% if post.lang != page.lang %}
+      <link rel="alternate" hreflang="{{post.lang}}" href="{{post.url}}" />
+    {% endif %}
+  {% endfor %}
+  <link rel="alternate" href="/rss.xml" type="application/rss+xml" />
+  <style>{% capture styles %}{% include style.sass %}{% endcapture %}{{ styles | sassify }}</style>
+</head>
 
-<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-<!--[if lt IE 9]>
-  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
+<body>
 
-
-<div class="navbar navbar-inverse navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
-      <a class="brand" href="#">{{ site.name }}</a>
-      <div class="nav-collapse collapse">
-        <ul class="nav">
-          <li class="active"><a href="/">Home</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<div class="nav">
+  <ul>
+    {% for menu in site.data.navigation[page.lang] %}
+      <li><a href="{{ menu[1].url }}">{{ menu[1].title }}</a></li>
+    {% endfor %}
+    <li class="lang">
+      {% assign posts=site.posts | where:"date", page.date | sort: 'path' %}
+      {% for post in posts %}
+        <a href="{{ post.url }}" class="{{ post.lang }}">{{ post.lang }}</a>
+      {% endfor %}
+    </li>
+  </ul>
 </div>
 
-<div class="container">
+<h1>{{ page.title }}</h1>
 
- <div class="row-fluid">
-    <div class="span8">
-        {{ content }}
-    </div>
-    <div class="span4">
-        {% include sidebar.html %}
-    </div>
+<div class="article">
+{% if page.type != 'pages' %}
+<p class="date">
+    {% include date.html date=page.date %}
+</p>
+{% endif %}
+
+{{ content }}
+<hr/>
+
 </div>
 
+<div class="foot">
+  {{ site.data.translations[page.lang].created }} <span>{% include date.html date=page.date %}</span>
+  {{ site.data.translations[page.lang].author }}  <a href="https://github.com/Jachu5/">Alfredo Cerezo</a>.
 </div>
+
+<div class="bg" style="background-image: url('data:image/jpg;base64,{% assign d = page.date|date:'%Y-%m-%d' %}{{ site.data.headers[d].img }}')
+">{{ page.title }}</div>
+
+</body>
+</html>

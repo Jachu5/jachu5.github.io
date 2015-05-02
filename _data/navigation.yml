@@ -1,0 +1,20 @@
+en:
+  logo:
+    title: "sand box"
+    url:   "/"
+  journal:
+    title: "journal"
+    url:   "/index.html"
+  about:
+    title: "about"
+    url:   "/about/"
+es:
+  logo:
+    title: "sand box"
+    url:   "/journal/"
+  journal:
+    title: "posts"
+    url:   "/journal/"
+  about:
+    title: "sobre mi"
+    url:   "/a-propos/"

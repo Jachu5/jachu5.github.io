@@ -1,9 +1,43 @@
-name: "Sandbox"
-description: ""
+permalink: /:title/
 
-url: "http://localhost:4000"
+markdown: redcarpet
+redcarpet:
+  extensions: ['smart', 'superscript']
 
-paginate: 10
+gems:
+  - jekyll-redirect-from
 
-markdown: rdiscount
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      lang: en
+      layout: default
+  -
+    scope:
+      path: _posts/es
+    values:
+      lang: es
+      layout: default
+  -
+    scope:
+      path: _posts/es/pages
+    values:
+      type: pages
+  -
+    scope:
+      path: _posts/en/pages
+    values:
+      type: pages
 
+  -
+    scope:
+      path: _posts/es/projects
+    values:
+      type: projects
+  -
+    scope:
+      path: _posts/en/projects
+    values:
+      type: projects

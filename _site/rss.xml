@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sylvain Durand</title>
+    <description></description>
+    <link></link>
+    <atom:link href="rss.xml" rel="self" type="application/rss+xml" />
+    
+    
+      <item>
+        <title>Jekyll</title>
+        <description>&lt;h1&gt;Jekyll&lt;/h1&gt;
+
+&lt;p&gt;Jekyll is a very simple static web generator, which makes easier just to focus in the important thing, our web content rather than coding. It is specially design for blogging and it allows to use GitHub as a hosting platform, the result is a very simple tool which takes advantage of GitHub&amp;rsquo;s version control and allows people to create blogs in a very simple way using static HTML, it removes the complexity of other tools such as WordPress or Mephisto which needs to manage DDBB and other issues, an we only need to care about creating our content creating simple text file in Textile (&lt;a href=&quot;http://es.wikipedia.org/wiki/Markdown&quot; title=&quot;Markdown&quot;&gt;&amp;ldquo;Markdown&amp;rdquo;&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;To know more about Jekyll you can check this interesting post from its creator, Tom Preston &lt;a href=&quot;http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html&quot; title=&quot;Blogging Like a Hacker&quot;&gt;Blogging Like a Hacker&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;You can visit Jekyll&amp;rsquo;s official &lt;a href=&quot;http://jekyllrb.com/&quot; title=&quot;Jekyll&quot;&gt;web&lt;/a&gt; and follow the installation tutorial, and probably you will get a wrong impression, it is not as easy at seems, truth to be told if we want to install Jekyll locally and deploy a web, things get complicated, so that I am going to try to explain the whole process I made explaining the doubts I had got and the problem I had.&lt;/p&gt;
+
+&lt;h2&gt;Installation&lt;/h2&gt;
+
+&lt;p&gt;GitHub allows to host public webs, it is free and the use github.io as a domain, in case you account to be a free account the complete domain name may be something like this &lt;strong&gt;user.github.io&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;We can create two kinds of webs: user and project, both are quite similar and both are deployed almost in the same way, user webs are hosted in a exclusive repository only for the web, and use the master branch to generate web connect, in the other hand, project webs are thought to share the repository with another project, in that case the content will be generated from the &lt;strong&gt;gh-pages&lt;/strong&gt; branch.&lt;/p&gt;
+
+&lt;p&gt;We are going to use &lt;em&gt;github-pages&lt;/em&gt; a tool provided by GitHub, it is a Ruby gem, in other words a Ruby package, ant will make thing easier to manage Jekyll and its dependencies avoiding version problems when deploying the web.&lt;/p&gt;
+
+&lt;p&gt;So far, so good, now we are going to follow step by step the tutorial provided by GitHub to use github-pages: &lt;a href=&quot;https://help.github.com/articles/using-jekyll-with-pages/&quot; title=&quot;GitHub Pages&quot;&gt;GitHub Pages&lt;/a&gt;:&lt;/p&gt;
+
+&lt;h3&gt;Requirements:&lt;/h3&gt;
+
+&lt;h4&gt;&lt;strong&gt;1.Ruby&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;p&gt;I am using Ubuntu 12.04 which already comes with &lt;a href=&quot;https://www.ruby-lang.org/es/&quot; title=&quot;Ruby&quot;&gt;Ruby&lt;/a&gt; 1.8, we can easily check this with the following command line:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ruby --version
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Jekyll needs version 1.9.3 or higher so it needs to be updated, to avoid configuration problems a version clash, it is recommend to use RVM to manage and update our Ruby environment, probably our first thought will be to use the traditional package manager that comes with Linux &amp;lsquo;$ apt-get&amp;rsquo;, but this constraints us to check decencies, version and &lt;a href=&quot;http://es.wikipedia.org/wiki/RubyGems&quot; title=&quot;gems&quot;&gt;gems&lt;/a&gt; conflicts, RVM safe us of all these worries and we can change Ruby version in a fast and easy way, it allows us to work in multiple Ruby environments independent and self-contained from each other.&lt;/p&gt;
+
+&lt;h5&gt;Installing RVM:&lt;/h5&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;First we need to install curl, you can find more information about curl &lt;a href=&quot;http://linux.about.com/od/commands/l/blcmdl1_curl.htm&quot; title=&quot;curl&quot;&gt;here&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;Apt-get install curl
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;To download RVM:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;url -sSL https://get.rvm.io &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; bash -s stable
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In case you have any problems with the signature, follow the &lt;a href=&quot;https://rvm.io/&quot; title=&quot;firma RVM&quot;&gt;steps in its web&lt;/a&gt; in its web&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;And now using RVM we can install and configure the Ruby version we need:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;RVM install ruby-2.0
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;RVM use ruby-2.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;And last but not least, let&amp;rsquo;s check everything work out:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ruby --version
+ruby 2.0.xxxxx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;So far, so good, we already have install the Ruby version we need, and also some useful tools like RVM, a command-line tool which allows you to easily install, manage, and work with multiple ruby environments from interpreters to sets of gems, which personally I didn&amp;rsquo;t know before and I found very useful.&lt;/p&gt;
+
+&lt;h4&gt;&lt;strong&gt;2.Bundler&lt;/strong&gt;:&lt;/h4&gt;
+
+&lt;p&gt;Bundler is a package manager for Ruby, provides a consistent environment for Ruby projects by tracking and installing the exact gems and versions that are needed. We just need to create and edit a file in our project root path called &lt;em&gt;Gemfile&lt;/em&gt; where we specify the source to download the gems and the gems we want to download, from here Bundle takes care of the whole process to detect and install the specified gems.&lt;/p&gt;
+
+&lt;p&gt;To install Bundler:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Bundle is a gem, so to install it we write in a console:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gem install bundler
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;&lt;strong&gt;3.Jekyll&lt;/strong&gt;:&lt;/h4&gt;
+
+&lt;p&gt;We are going to use GitHub Pages to host the web, so that the first step is to a have a GitHub repository and clone it in our machine, we have already talk about the different kind of web we can generate using GitHub pages, user or project, in this case we are generating a user web (remember to work in the master branch), so we name the repository as follows: &lt;strong&gt;username.github.io&lt;/strong&gt;, once it is created we clone it.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone https://github.com/username/username.github.io
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In order to avoid dependency management, even in the GitHub Pages server as well as in our local environment (Markdown and other Jekyll dependencies), we follow the recommendation given by the Jekyll&amp;rsquo;s official web page and we use the gem given by GitHub called &lt;strong&gt;github-pages&lt;/strong&gt; which will handle all dependencies for us, to install it we use Bundler, we only need to create a text file called &lt;strong&gt;Gemfile&lt;/strong&gt; in the root of repository and we indicate which gems we want to download and the source, in our case:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;source &amp;#39;https://rubygems.org&amp;#39;
+gem &amp;#39;github-pages&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Running Jekyll&lt;/h2&gt;
+
+&lt;p&gt;Ok, we have installed all the requirements in our local environment, so now lets try everything.
+Running Jekyll is very easy, we are going to use Bundler through the console using the &lt;em&gt;exec&lt;/em&gt; command which uses the gems already specified in the &lt;em&gt;Gemfile&lt;/em&gt;.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;jekyll serve
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If everything worked out we should be able to check our page http://localhost:4000&lt;/p&gt;
+
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;So far I’ve only been using Jekyll for a matter of days to create this blog and write this post, I found it as a very powerful tool that avoid the user to take care of things such us DDBB or PHP, which is very useful. Maybe the most annoying thing is the official documentation, which I thing is scattered and disorganized, but just after a couple of working afternoons the feelings get better and better once the installation process have finished.&lt;/p&gt;
+
+&lt;p&gt;Here we conclude with the Jekyll installation process, in the following post I planned to cover how to configure it, customization and content generation.&lt;/p&gt;
+
+&lt;p&gt;Thanks for reading and I hope you find it useful.&lt;/p&gt;
+
+&lt;h2&gt;References:&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Jekyll: &lt;a href=&quot;http://jekyllrb.com/&quot; title=&quot;Jekyll&quot;&gt;http://jekyllrb.com/&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Using Jekyll with Pages: &lt;a href=&quot;https://help.github.com/articles/using-jekyll-with-pages/&quot; title=&quot;Using Jekyll with Pages&quot;&gt;https://help.github.com/articles/using-jekyll-with-pages/&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Jekyll by example: &lt;a href=&quot;https://www.andrewmunsell.com/tutorials/jekyll-by-example/tutorial&quot; title=&quot;Jekyll by example&quot;&gt;https://www.andrewmunsell.com/tutorials/jekyll-by-example/tutorial&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Could not find a JavaScript runtime: &lt;a href=&quot;https://github.com/jekyll/jekyll/issues/2327&quot; title=&quot;Could not find a JavaScript runtime. &quot;&gt;https://github.com/jekyll/jekyll/issues/2327&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Install Jekyll 2 on Ubuntu 14.04 &lt;a href=&quot;http://michaelchelen.net/81fa/install-jekyll-2-ubuntu-14-04/&quot; title=&quot;Install Jekyll 2 on Ubuntu 14.04&quot;&gt;http://michaelchelen.net/81fa/install-jekyll-2-ubuntu-14-04/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 22 Mar 2015 00:00:00 +0100</pubDate>
+        <link>/Jekyll_en/</link>
+        <guid isPermaLink="true">/Jekyll_en/</guid>
+      </item>
+    
+  </channel>
+</rss>

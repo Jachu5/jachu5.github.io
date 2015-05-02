@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+    <url>
+      <loc>/projets/</loc>
+      
+      
+        <xhtml:link rel="alternate" hreflang="es" href="/projets/" />
+      
+        <xhtml:link rel="alternate" hreflang="en" href="/projects/" />
+      
+      <lastmod>2015-04-28T00:00:00+02:00</lastmod>
+      <changefreq>weekly</changefreq>
+    </url>
+  
+    <url>
+      <loc>/projects/</loc>
+      
+      
+        <xhtml:link rel="alternate" hreflang="es" href="/projets/" />
+      
+        <xhtml:link rel="alternate" hreflang="en" href="/projects/" />
+      
+      <lastmod>2015-04-28T00:00:00+02:00</lastmod>
+      <changefreq>weekly</changefreq>
+    </url>
+  
+    <url>
+      <loc>/Jekyll_en/</loc>
+      
+      
+        <xhtml:link rel="alternate" hreflang="en" href="/Jekyll_en/" />
+      
+        <xhtml:link rel="alternate" hreflang="es" href="/Jekyll/" />
+      
+      <lastmod>2015-03-22T00:00:00+01:00</lastmod>
+      <changefreq>weekly</changefreq>
+    </url>
+  
+    <url>
+      <loc>/Jekyll/</loc>
+      
+      
+        <xhtml:link rel="alternate" hreflang="en" href="/Jekyll_en/" />
+      
+        <xhtml:link rel="alternate" hreflang="es" href="/Jekyll/" />
+      
+      <lastmod>2015-03-22T00:00:00+01:00</lastmod>
+      <changefreq>weekly</changefreq>
+    </url>
+  
+    <url>
+      <loc>/404.html</loc>
+      
+      
+        <xhtml:link rel="alternate" hreflang="en" href="/404.html" />
+      
+        <xhtml:link rel="alternate" hreflang="es" href="/404/" />
+      
+      <lastmod>2014-09-13T00:00:00+02:00</lastmod>
+      <changefreq>weekly</changefreq>
+    </url>
+  
+    <url>
+      <loc>/404/</loc>
+      
+      
+        <xhtml:link rel="alternate" hreflang="en" href="/404.html" />
+      
+        <xhtml:link rel="alternate" hreflang="es" href="/404/" />
+      
+      <lastmod>2014-09-13T00:00:00+02:00</lastmod>
+      <changefreq>weekly</changefreq>
+    </url>
+  
+    <url>
+      <loc>/journal/</loc>
+      
+      
+        <xhtml:link rel="alternate" hreflang="es" href="/journal/" />
+      
+        <xhtml:link rel="alternate" hreflang="en" href="/" />
+      
+      <lastmod>2014-08-31T00:00:00+02:00</lastmod>
+      <changefreq>weekly</changefreq>
+    </url>
+  
+    <url>
+      <loc>/</loc>
+      
+      
+        <xhtml:link rel="alternate" hreflang="es" href="/journal/" />
+      
+        <xhtml:link rel="alternate" hreflang="en" href="/" />
+      
+      <lastmod>2014-08-31T00:00:00+02:00</lastmod>
+      <changefreq>weekly</changefreq>
+    </url>
+  
+    <url>
+      <loc>/about/</loc>
+      
+      
+        <xhtml:link rel="alternate" hreflang="en" href="/about/" />
+      
+        <xhtml:link rel="alternate" hreflang="es" href="/a-propos/" />
+      
+      <lastmod>2014-08-24T00:00:00+02:00</lastmod>
+      <changefreq>weekly</changefreq>
+    </url>
+  
+    <url>
+      <loc>/a-propos/</loc>
+      
+      
+        <xhtml:link rel="alternate" hreflang="en" href="/about/" />
+      
+        <xhtml:link rel="alternate" hreflang="es" href="/a-propos/" />
+      
+      <lastmod>2014-08-24T00:00:00+02:00</lastmod>
+      <changefreq>weekly</changefreq>
+    </url>
+  
+</urlset>

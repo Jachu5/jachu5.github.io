@@ -3,7 +3,7 @@ en:
     title: "sand box"
     url:   "/"
   journal:
-    title: "journal"
+    title: "posts"
     url:   "/index.html"
   about:
     title: "about"
@@ -16,5 +16,5 @@ es:
     title: "posts"
     url:   "/journal/"
   about:
-    title: "sobre mi"
+    title: "sobre mí"
     url:   "/a-propos/"

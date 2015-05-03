@@ -9,9 +9,7 @@
     
       <item>
         <title>Jekyll</title>
-        <description>&lt;h1&gt;Jekyll&lt;/h1&gt;
-
-&lt;p&gt;Jekyll is a very simple static web generator, which makes easier just to focus in the important thing, our web content rather than coding. It is specially design for blogging and it allows to use GitHub as a hosting platform, the result is a very simple tool which takes advantage of GitHub&amp;rsquo;s version control and allows people to create blogs in a very simple way using static HTML, it removes the complexity of other tools such as WordPress or Mephisto which needs to manage DDBB and other issues, an we only need to care about creating our content creating simple text file in Textile (&lt;a href=&quot;http://es.wikipedia.org/wiki/Markdown&quot; title=&quot;Markdown&quot;&gt;&amp;ldquo;Markdown&amp;rdquo;&lt;/a&gt;).&lt;/p&gt;
+        <description>&lt;p&gt;J&lt;em&gt;ekyll&lt;/em&gt; is a very simple static web generator, which makes easier just to focus in the important thing, our web content rather than coding. It is specially design for blogging and it allows to use GitHub as a hosting platform, the result is a very simple tool which takes advantage of GitHub&amp;rsquo;s version control and allows people to create blogs in a very simple way using static HTML, it removes the complexity of other tools such as WordPress or Mephisto which needs to manage DDBB and other issues, an we only need to care about creating our content creating simple text file in Textile (&lt;a href=&quot;http://es.wikipedia.org/wiki/Markdown&quot; title=&quot;Markdown&quot;&gt;&amp;ldquo;Markdown&amp;rdquo;&lt;/a&gt;).&lt;/p&gt;
 
 &lt;p&gt;To know more about Jekyll you can check this interesting post from its creator, Tom Preston &lt;a href=&quot;http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html&quot; title=&quot;Blogging Like a Hacker&quot;&gt;Blogging Like a Hacker&lt;/a&gt;.&lt;/p&gt;
 

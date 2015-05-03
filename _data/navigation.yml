@@ -1,6 +1,6 @@
 en:
   logo:
-    title: "sand box"
+    title: "sandbox"
     url:   "/"
   journal:
     title: "posts"
@@ -10,7 +10,7 @@ en:
     url:   "/about/"
 es:
   logo:
-    title: "sand box"
+    title: "sandbox"
     url:   "/journal/"
   journal:
     title: "posts"

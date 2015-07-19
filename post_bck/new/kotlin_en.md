@@ -36,7 +36,19 @@ Como resultado todo compila, pero los métodos de Groovy no tienen cuerpo, para 
 Esto tiene una gran pega, el tiempo y la complejidad.
 
 - *Scala and Kotlin*:
-Ambos lenguajes enseñan a sus compiladores a enteder los archivos fuente de Java, así que ambos pueden generar los *.class y ejecutar javac sobre ellos. 
+Ambos lenguajes enseñan a sus compiladores a enteder los archivos fuente de Java, así que ambos pueden generar los *.class y ejecutar javac sobre ellos.
+
+**Compiler**
+During my Kotlin research it called my attention its compiler, so far I didn't know anything about JVM based programming languages.
+To compile mixed projects, in our case Kotlin, requires it to understand source Java files and its binaries, it also requires Java to understand Kotlin source files and it binaries. The idea of Kotlin compiler to understand Java source files is easy to imagine, but the opposite thing, to make the javac, the Java compiler, to understand Kotlin files is hard.
+
+So far the start of the art if the following.
+- *Groovy*:
+Groovy genereates stubs from the code, this means the Java source files contains only Groovy classes, methods and fileds declarations, later on it executes javac over the stubs and the Java source files. As a result everything compiles, but the Groovy methods has no body yet, to solve this issue it execute the Groovy compiler and replace the classes contained on the stubs.
+This process have a drawback, time and complexity.
+
+- *Scala and Kotlin*:
+Both languajes teach their compilers to understand Java source files, so both can generate the *.class files and execute javac over them.
 
 ## Caracterisiticas:
 *Tipado Estático*

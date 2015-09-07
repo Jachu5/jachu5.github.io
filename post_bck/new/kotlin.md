@@ -36,14 +36,6 @@ Ambos lenguajes enseñan a sus compiladores a enteder los archivos fuente de Jav
 *Traits*
 *Extension Fuctions*
 
-## Curva de aprendizaje
-
-
-## Ligero
-## Ofrece una muy buena interoperabilidad con Java
-## Se posiciona como alternativa a Java para Android
-
-
 
 ## PASAO 1
 

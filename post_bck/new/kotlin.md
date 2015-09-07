@@ -2,7 +2,9 @@
 title: Kotlin
 name: kotlin
 ---
-Hace no unas semanas, en la Droidcon 2015 en Madrid, en varias charlas de Antonio Leiva [Antonio Leiva](http://antonioleiva.com/) se habló de un lenguaje de programación que me llamó mucho la atención, Kotlin. Y a había oido hablar de él pero no tan en profundidad, así que me puse a investigar y hacer alguna que otra prueba, lo cierto es que me llamó mucho la atención por su curva de aprendizaje, muy rápida y amena, y sus orientación funcional. Como siempre me gustaría avisar que soy un primerizo con Kotlin así que cualquier aclaración será bienvenida, ¡espero que os sea de utilidad!.
+Hace unos mese, en la Droidcon 2015 en Madrid, en varias charlas de Antonio Leiva [Antonio Leiva](http://antonioleiva.com/) se habló de un lenguaje de programación que me llamó mucho la atención, Kotlin. Ya había oido hablar de él pero no tan en profundidad, así que me puse a investigar y hacer alguna que otra prueba, lo cierto es que me llamó mucho la atención por su curva de aprendizaje, muy rápida y amena, y sus orientación funcional. Como siempre me gustaría avisar que soy un primerizo con Kotlin así que cualquier aclaración será bienvenida, por ahora solo he realizado alguna pruebas basadas en sus koans de introducción que podéis encontrar en el enlace mas abajo, ¡espero que os sea de utilidad!.
+- Kotlin [Koans](http://kotlinlang.org/docs/tutorials/koans.html).
+- Primer bloque de introducción resulto en [github](https://github.com/Jachu5/Koans).
 
 Kotlin es creado por Jetbrain, la compañia detrás de IntelliJ, y corre sobre la máquina virtual de Java, luego hablaremos más en profundidad sobre esto, es un lenguaje orientado a objetos y como hemos mencionado tiene algunas ideas que vienen de la programación funcional.
 
@@ -24,13 +26,15 @@ Como resultado todo compila, pero los métodos de Groovy no tienen cuerpo, para 
 Esto tiene una gran pega, el tiempo y la complejidad.
 
 - *Scala and Kotlin*:
-Ambos lenguajes enseñan a sus compiladores a enteder los archivos fuente de Java, así que ambos pueden generar los *.class y ejecutar javac sobre ellos. 
+Ambos lenguajes enseñan a sus compiladores a enteder los archivos fuente de Java, así que ambos pueden generar los *.class y ejecutar javac sobre ellos.
 
 ## Caracterisiticas:
 *Tipado Estático*
+*Java compatible*
 *Null Safety*
 *Nombre y argumentos opcionales*
-*Soporte para Lambdas*
+*Soporte para funciones de alto nivel*
+*Extension de funciones*
 *Data Objects*
 *Singletons usando object notation*
 *Traits*

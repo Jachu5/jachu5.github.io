@@ -29,16 +29,96 @@ Esto tiene una gran pega, el tiempo y la complejidad.
 Ambos lenguajes enseñan a sus compiladores a enteder los archivos fuente de Java, así que ambos pueden generar los *.class y ejecutar javac sobre ellos.
 
 ## Caracterisiticas:
-*Tipado Estático*
-*Java compatible*
-*Null Safety*
-*Nombre y argumentos opcionales*
-*Soporte para funciones de alto nivel*
-*Extension de funciones*
-*Data Objects*
-*Singletons usando object notation*
-*Traits*
-*Extension Fuctions*
+###### Tipado Estático
+###### Java compatible
+###### Null Safety
+Una de mis características favoritas, null es lo que se llama un "first-class citizen" en el sistema de tipos de kotlin, es decir los tipos son conscientes de que pueden ser null, tanto en el flujo de la aplicación asi como en su referenciación. Esto es bastante útil ya que en mi opinión la posibilidad de acceder en un nuestro codigo a referencias que son null (NullPointerException en Java) es una fuente de problemas inmensa que conlleva mucho boilerplate code y programación defensiva.
+
+Kotlin puede hacer distinción entre aquellos tipos que pueden hacer referencia a null y aquellos que no.
+
+```
+var a: String = "abc"
+a = null // compilation error"
+val l = a.lenght() // esto nunca generará un NullPointerException y el compilador no dará problemas
+```
+Pero igualmente nos permite hacer un tipo "nullable"
+```
+var b: String? = "abc"
+b = null // ok
+val l = a.length() // esto puede generar un NullPointerException y el compilador no nos permitirá hacer esta llamada
+```
+En los casos en los que null es invetable, Kotlin nos ofrece maneras bastante útiles de checkear las posibles referencias a null:
+
+- Mediante checkedo explícito:
+	El compilador detecta que ha habido un checkeo de null y permite la llamda a la función lenght.
+```
+if ( b!= null){
+	b.lenght()
+}
+```
+- Safe Calls
+	Haciendo uso del operador ?, esto nos devolverá el valor devulto por la función length() en caso de que b no sea null o null en caso contrario:
+    ```
+    b?.length()
+    ```
+    Y además se puede encadenar de la forma:
+    ```
+    inbox?.email?.message
+    ```
+- Elvis operator "?:"
+	Similar al de Groovy, estas dos expresiones serían equivalentes:
+     ```
+     val l: Int = if (b != null) b.length() else -1
+     val l = b?.length() ?: -1
+     ```
+     Si la expresión a la izquierda del Elvis Operator no es null devuelve el valor, en caso contrario **evalua** y devuelve la expresión de la derecha.
+
+Más información en la [Documentación oficial](http://kotlinlang.org/docs/reference/null-safety.html) y en Koan resuelto en mi [Github](https://github.com/Jachu5/Koans/tree/master/src/i_introduction/_5_Nullable_Types)
+
+
+###### Nombre y argumentos opcionales
+###### Soporte para funciones de alto nivel
+###### Data Classes
+Muy útiles para clases que solo almancenan información, de manera que nos genran de manera automática ciertas funcionalidad como la función equals(), hashCode(), toString() o una función copy() que copia los valores en una instancia nueva del objeto permitiendonos modificar los valores deseados, actualmente tenemos alternativas en Java como la librería [AutoValue](https://github.com/google/auto/tree/master/value) de Google.
+
+```
+data class Money(val currency: String, val amount: Int)
+val money = Money("USD", 100)
+val moreMoney = money.copy(amount = 200)
+
+```
+
+Y nos permite dar valores por defecto a los parámetros de la construcción, así nos podemos olvidar de definir diferentes contructores.
+
+```
+data class Money(val currency: String = "Euro", val amount: Int = 0)
+```
+
+Y otra cosa que me gustó mucho son las Multi-declaraciones, que nos permiten hacer cosas del tipo:
+```
+val jane = User("Jane", 35) 
+val (name, age) = jane
+println("$name, $age years of age") // Imprime "Jane, 35 years of age"
+
+```
+
+Más información en la [Documentación oficial](http://kotlinlang.org/docs/reference/data-classes.html) y en Koan resuelto en mi [Github](https://github.com/Jachu5/Koans/tree/master/src/i_introduction/_7_Data_Classes)
+
+###### Singletons usando object notation
+###### Traits
+###### Extension Fuctions######
+Kotlin permite ampliar las funcionalidades de la clases ( tanto propias de Kotlin como de Java) sin necesidad de heredarlas usando la declaración "extension", estos miembros se introducen de manera estática, de esta manera nos podemos olvidar de las clases "Utils" repltas de llamadas a funciones estáticas y obtener un código mucho mas limpio
+````
+fun String.last() : Char {
+  return this[length - 1]
+}
+val x = "Hey!"
+println(x.last()) // Imprime "!".
+
+```
+A partir de mis escarceos con Kotlin descubrí que otros lenguajes también implementa esta funcionalidad como puede ser C#
+Mas información en la [Documentación oficial](http://kotlinlang.org/docs/reference/extensions.html) y en Koan resuelto en mi [Github](https://github.com/Jachu5/Koans/tree/master/src/i_introduction/_8_Extension_Functions)
+
 
 
 ## PASAO 1

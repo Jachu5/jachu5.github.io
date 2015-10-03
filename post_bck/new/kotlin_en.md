@@ -26,17 +26,22 @@ Kotlin is created and maintained by Jetbrains, the compnay behind IntelliJ, and 
 - Probably Kotlin will have a great support by Jetbrains, if Kotlin is successful they will sell more licenses of their IDE given their easy integration.
 - To this day, there is not a real Java sucesor, a lot of JVM based languages have emereged which offers diferents interesting characteristics such closures, modularity, fuctional componentes, but no one has reached the throne yet. Kotlin offers all those aspects but also Jetbrains supports and [reification](https://en.wikipedia.org/wiki/Reification_(computer_science), to know more abot reification visit this [post](http://gafter.blogspot.com.es/2006/11/reified-generics-for-java.html).
 
-**Compilador**
-Cunado investigué sobre Kotlin me llamó la atención su compiladore, hasta ese entonces no sabía nada de como funcionaban los compilador de los lenguajes que funcionan sobre Java. Compilar proyectos mixtos, y en le caso de Kotlin, requiere que que Kotlin deba entender los ficheros fuentes de Java y sus binarios, y Java los ficheros fuentes de Kotlin y sus binarios. La idea de que el compilador de Kotlin entienda los ficheros fuente de Java es facil de imaginar, pero hacer que javac, el compilador de java, entienda los los ficheros fuentes de Kotlin es claramente imposible.
+##Instalación
+Es muy sencillo, la gente de Jetbrain lo ha hecho muy bien.
+Requerimientos:
+1. Intellij 14.1 o Android Studio: [IntelliJ IDEA Minimal Survival Guide](http://hadihariri.com/2014/01/06/intellij-idea-minimal-survival-guide/).
+	Puedes hacerlo desde la página de [descargas](https://confluence.jetbrains.com/display/IDEADEV/IDEA+14.1+EAP) de Jetbrains
+2. JDK 1.6 o superior: Puedes hacerlo desde la página de [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html) o si estas muy perdido puedes recurrir al tutorial [JVM Minimal Survive Guide](http://hadihariri.com/2013/12/29/jvm-minimal-survival-guide-for-the-dotnet-developer/)
+3. Plugin de Kotlin: Se puede hacer desde el propio IDE, abre IntelliJ: File -> Plugins, y busca ==Kotlin==, listo :).
 
-Actualmente el estado de los compiladores es el siguiente:
-- *Groovy*:
-Groovy genra stubs a partir del código, esto significa que los archivos fuente de Java contienen solo las declaraciones de las clases de Groovy, métodos y campos. A continuación ejecuta javac en los stubs y los archivos fuentes Java.
-Como resultado todo compila, pero los métodos de Groovy no tienen cuerpo, para solucionar esto a continuación se ejecuta el compilador de Groovy y reemplaza las clases de los stubs.
-Esto tiene una gran pega, el tiempo y la complejidad.
-
-- *Scala and Kotlin*:
-Ambos lenguajes enseñan a sus compiladores a enteder los archivos fuente de Java, así que ambos pueden generar los *.class y ejecutar javac sobre ellos.
+##Installation
+Very simple, Jetbrain people has done really nice.
+Requirements:
+1. IntelliJ 14.1 or newer, it also works with Andorid Studion:  [IntelliJ IDEA Minimal Survival Guide](http://hadihariri.com/2014/01/06/intellij-idea-minimal-survival-guide/).
+	You can dowload it from [dowloads](https://confluence.jetbrains.com/display/IDEADEV/IDEA+14.1+EAP) from Jetbrains.
+2. JDK 1.6 or superior: You can dowload it from the official web page  [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html), or maybe you prefer to use this fantastic tutorial  [JVM Minimal Survive Guide](http://hadihariri.com/2013/12/29/jvm-minimal-survival-guide-for-the-dotnet-developer/)
+3. Kotlin plugin: Ypu can download it from the IDE, just open IntelliJ and go: File -> PLugins and search ==Kotlin==.
+4. Done :).
 
 **Compiler**
 During my Kotlin research it called my attention its compiler, so far I didn't know anything about JVM based programming languages.
@@ -50,39 +55,118 @@ This process have a drawback, time and complexity.
 - *Scala and Kotlin*:
 Both languajes teach their compilers to understand Java source files, so both can generate the *.class files and execute javac over them.
 
-## Caracterisiticas:
-*Tipado Estático*
-*Null Safety*
-*Nombre y argumentos opcionales*
-*Soporte para Lambdas*
-*Data Objects*
-*Singletons usando object notation*
-*Traits*
-*Extension Fuctions*
+## Characteristics:
+###### Java interoperabilty
+Kotlin was design with interoperability in mind, and they achived it! I dind't try it too much, just some test code doing the koans and seems really easy to understand and to implemend in btohs sides, from Kotlin and from Java.
 
+Here the documentation is very clear so I recommend to take a look to the offical documentation.
 
-## PASAO 1
+More information on the [Official page](http://kotlinlang.org/docs/reference/java-interop.html) or you can check the resolved koan in my [Github](https://github.com/Jachu5/Koans/tree/master/src/i_introduction/_5_Nullable_Types)
 
-### PASO 1.1:
+###### Null Safety
+Una de mis características favoritas y que soluciona uno de los problemas que más molestos me parecen, las referencias a null.
 
-#### **Paso 1.1.1**
+One of my favourity characteristics that solves one of the most disgusting problem when programming, the null reference.
+Null in Kotlin is a "first-class citizen" in its type system, in other words, types are aware that they can be null. In my opinion this is very usefull since the NullPointerException in Java is somenthing really nasty and evolves into a lot of boilerplate code and defensice programming.
 
+Kotlin can make distinction between those types that can make a reference to null a those which cannot.
 
 ```
-$ CODE
+var a: String = "abc"
+a = null // compilation error
+val l = a.lenght() // this will no generate a NullPointerException
+```
+We can make a type "nullable"
+```
+var b: String? = "abc"
+b = null // ok
+val l = b.length() // Now this can generate a NullPointerException so it will no compile.
 ```
 
-##### Paso 1.1.1.1:
+But if you really want to deal with null, Kotlin gives us different ways to check any possible null reference:
+
+- Using explicit check:
+	The compiler detects that has been a null check and you can saftly call the `lenght()`.
+```
+if ( b!= null){
+	b.lenght()
+}
+```
+- Safe Calls
+    Using the operator `?`, this will return the value of the function `lenght()`, and null otherwise.
+    ```
+    b?.length()
+    ```
+   And you can make chains like this:
+    ```
+    inbox?.email?.message
+    ```
+- Operador Elvis "?:"
+	Similar to the Groovy's one, both expresion are the same:
+     ```
+     val l: Int = if (b != null) b.length() else -1
+     val l = b?.length() ?: -1
+     ```
+     If the exression to the left of `?:` is null it returns the value, otherwise it **evaluaes** and returns the right-hand expression.
+
+More information on the [Official page](http://kotlinlang.org/docs/reference/java-interop.html) or you can check the resolved koan in my [Github](https://github.com/Jachu5/Koans/tree/master/src/i_introduction/_5_Nullable_Types)
+
+###### High order function and Lambdas support
+I love it,
+Basiccally a high orer function is a function that can take other functions as paremeters o it can return another fucntion, here you got and example
+ ```
+list.filter {it % 2 == 1}
+ ```
+In the example a list is filtered removing all the even elements, it uses a predefined function `filter` which you cna pass any other function as an argument `it % 2 == 1` and will be applyed to the whole collection.
+
+Probably the easiest way to understand it reading the [Official documentation](http://kotlinlang.org/docs/reference/lambdas.html)and checking the resolved koan [Github](https://github.com/Jachu5/Koans/blob/master/src/i_introduction/_3_Lambdas/Lambdas.kt)
+
+###### Data Classes
+Very usefull to classes those wich only exits to store information, Data Classes will generate certain functionallities such as equals(), hasCode(), toString or copy function, Currently Google offers the AutoValue library wich do the same [AutoValue](https://github.com/google/auto/tree/master/value).
+
+```
+data class Money(val currency: String, val amount: Int)
+val money = Money("USD", 100)
+val moreMoney = money.copy(amount = 200)
+
+```
+
+We can declare default values, so we don't need to declare different constructors.
+
+```
+data class Money(val currency: String = "Euro", val amount: Int = 0)
+```
+And we have Multi-declarations:
+```
+val jane = User("Jane", 35) 
+val (name, age) = jane
+println("$name, $age years of age") // Imprime "Jane, 35 years of age"
+
+```
+More information on the [Official page](http://kotlinlang.org/docs/reference/data-classes.html) or you can check the resolved koan in [Github](https://github.com/Jachu5/Koans/tree/master/src/i_introduction/_7_Data_Classes)
+
+###### Traits
+You can understand Traits as interfaces where you can implement functions, I have no example since I only know them from Scala and since then I really miss them in my daily work, you have got more info in this [post](http://blog.jetbrains.com/kotlin/2011/08/multiple-inheritance-part-2-possible-directions/).
+
+###### Extension Fuctions######
+
+Kotlin allows to extend the functionallities of any class (Kotlin or Java) with no heritage, just using the "extension" declaration, this members are introduced in a static way and make us to forget the "Utils" classes full of static functions, this way we obtaine a cleaner code.
+
+````
+fun String.last() : Char {
+  return this[length - 1]
+}
+val x = "Hey!"
+println(x.last()) // Prints "!".
+
+```
+Reading about this I discovered that other langueges like C# also implements this functionalliy.
+
+More information on the [Official page](http://kotlinlang.org/docs/reference/extensions.html) or you can check the resolved koan in [Github](https://github.com/Jachu5/Koans/tree/master/src/i_introduction/_8_Extension_Functions)
+
+## Conclusion
+To be honest, as I mentioned before, my adventure with Kotlin has been short, a just made some programming doing the koans, I a really like it and I think it gives new opportunities if you compare it with Java.
+I hope you like the post and thank for reaidng it!.
 
 
 
-#### **Paso 1.1.2**
-
-#### **Paso 1.1.3**
-
-
-## PASO 2
-
-## Referencias:
-
-* Nanme Ref: [http://url.com/](http://url.com/ "Url").

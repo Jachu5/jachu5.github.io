@@ -2,13 +2,13 @@
 title: Kotlin
 name: kotlin
 ---
-Some weeks ago, at the Droidcon 2015 in Madrid, several lecturers like Antonio Leiva [Antonio Leiva](http://antonioleiva.com/), talked about a programming language that called my attention, Kotlin. I had already heard about Kotlin but not in detail, so I started a research and I did some demos, and the result was good, I really liked it, its learning curve is surprisingly easy and fast and its functional components are really interesting.
+Some weeks ago, at the Droidcon 2015 in Madrid, several lecturers like Antonio Leiva [Antonio Leiva](http://antonioleiva.com/), talked about a programming language that called my attention, Kotlin. I had already heard about Kotlin but not in detail, so I started a research and I did some demos, the result was good, I really liked it, its learning curve is surprisingly easy and fast and its functional components are really interesting.
 
-Kotlin is created and maintained by Jetbrains, the company behind IntelliJ, and it runs on the JVM (Java Virtual Machine), but will talk about it later. It is a object oriented language and as I mentioned before, it has some functional aspects which make it a very interesting Java alternative.
+Kotlin is created and maintained by Jetbrains, the company behind IntelliJ, and it runs on the JVM (Java Virtual Machine). It is an object oriented language and as I mentioned before, it has some functional aspects which make it a very interesting Java alternative.
 
 
 **Why I like Kotlin**
-- Its learning curve is fast, everybody compares Kotlin with Scala, I am a beginner in both, but I find Kotlin easier but also more limited than Scala.
+- Its learning curve is fast, everybody compares Kotlin with Scala, I am a beginner with both so make a comparison is hard but I find Kotlin easier and maybe also more limited than Scala.
 - It is lightweight; the Kotlin library is only 1073KB.
 - It offers a good Java interoperability.
 - It is becoming a real Java alternative to the Android community, I have not tried yet the Android version, but programmers are really excited with it.
@@ -28,10 +28,10 @@ Requirements:
 Kotlin called my attention for its compiler, so far I didn't know anything about JVM based programming languages so it was very interesting what I found .
 To compile mixed projects, in our case Kotlin, requires it to understand the Java source files and its binaries, it also requires Java to understand the Kotlin source files and it binaries. The idea of Kotlin compiler to understand Java source files is easy to imagine, but the opposite thing, to make the javac (Java compiler) to understand Kotlin files is hard.
 
-So far the state of the art if the following.
+So far the state of the art is the following.
 - *Groovy*:
-Groovy generates stubs from the code, this means the Java source files contains only Groovy classes, methods and fields declarations, later on it executes javac over the stubs and the Java source files. As a result everything compiles, but the Groovy methods has no body yet, to solve this issue it execute the Groovy compiler and replace the classes contained on the stubs.
-This process has a drawback, time and complexity.
+Groovy generates stubs from the code, this means the Java source files contains only Groovy classes, methods and fields declarations, later on it executes javac over the stubs and the Java source files. As a result everything compiles, but the Groovy methods has no body yet, to solve this issue it executes the Groovy compiler and replace the classes contained inside the stubs.
+This process has some drawbacks, time and complexity.
 
 - *Scala and Kotlin*:
 Both languages teach their compilers to understand the Java source files, so both can generate the *.class files and execute javac over them.
@@ -41,9 +41,9 @@ Both languages teach their compilers to understand the Java source files, so bot
 ###### Java interoperabilty
 Kotlin was designed with interoperability in mind, and they achieved it! I didn’t try it too much, just some test code doing the koans and seems really easy to understand and to implement in both sides, from Kotlin and from Java.
 
-Here the documentation is very clear so I recommend taking a look to the official documentation.
+Here the documentation is very clear so I recommend taking a look to it.
 
-More information on the [Official page](http://kotlinlang.org/docs/reference/java-interop.html) or you can check the resolved koan in my [Github](https://github.com/Jachu5/Koans/tree/master/src/i_introduction/_5_Nullable_Types)
+More information on the [Official page](http://kotlinlang.org/docs/reference/java-interop.html) or you can check the resolved koan in [Github](https://github.com/Jachu5/Koans/tree/master/src/i_introduction/_5_Nullable_Types)
 
 
 ###### Null Safety
@@ -67,7 +67,7 @@ val l = b.length() // Now this can generate a NullPointerException so it will no
 But if you really want to deal with null, Kotlin gives us different ways to check any possible null reference:
 
 - Using explicit check:
-	The compiler detects that has been a null check and you can saftly call the `lenght()`.
+	The compiler detects that has been a null check and you can saftly call the `lenght()` function.
 ```
 if ( b!= null){
 	b.lenght()
@@ -93,7 +93,7 @@ if ( b!= null){
 More information on the [Official page](http://kotlinlang.org/docs/reference/java-interop.html) or you can check the resolved koan in my [Github](https://github.com/Jachu5/Koans/tree/master/src/i_introduction/_5_Nullable_Types)
 
 ###### High order function and Lambdas support
-I love it,
+I love it.
 Basically a high order function is a function that can take other functions as parameters o it can return another function, here you got and example
  ```
 list.filter {it % 2 == 1}
@@ -103,7 +103,7 @@ In the example a list is filtered removing all the even elements, it uses a pred
 Probably the easiest way to understand it reading the [Official documentation](http://kotlinlang.org/docs/reference/lambdas.html)and checking the resolved koan [Github](https://github.com/Jachu5/Koans/blob/master/src/i_introduction/_3_Lambdas/Lambdas.kt)
 
 ###### Data Classes
-Very useful to classes those which only exist to store information, Data Classes will generate certain functionalities such as equals(), hasCode(), toString or copy function, Currently Google offers the AutoValue library wich do the same [AutoValue](https://github.com/google/auto/tree/master/value).
+Very useful, data classes are those which only exist to store information, Data Classes will generate certain functionalities such as equals(), hasCode(), toString or copy function, Currently Google offers the AutoValue library wich do the same [AutoValue](https://github.com/google/auto/tree/master/value).
 
 ```
 data class Money(val currency: String, val amount: Int)
@@ -111,9 +111,7 @@ val money = Money("USD", 100)
 val moreMoney = money.copy(amount = 200)
 
 ```
-
 We can declare default values, so we don't need to declare different constructors.
-
 ```
 data class Money(val currency: String = "Euro", val amount: Int = 0)
 ```

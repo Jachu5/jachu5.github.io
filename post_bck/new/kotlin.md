@@ -16,8 +16,15 @@ Kotlin es creado por Jetbrain, la compañía detrás de IntelliJ, y corre sobre 
 - Seguramente Kotlin tenga un gran soporte por parte de Jetbrains ya que tienen un gran interés en su éxito, cuanto mas lejos llegue y dado su sencillez de integración con IntelliJ, más licencias de este último venderán, por lo tanto no me parece que vayan a abandonar el proyecto.
 - Otro factor importante a mi entender es que no hay un claro sucesor para Java, han aparecido muchos lenguajes que ofrecen características como closures, modularidad, características funcionales pero ninguno se ha posicionado aún. Kotlin además de todo eso ofrece soporte por parte de Jetbrains y [reification](https://en.wikipedia.org/wiki/Reification_(computer_science), para saber sobre esto último recomiendo este [post](http://gafter.blogspot.com.es/2006/11/reified-generics-for-java.html).
 
+##Instalación
+Es muy sencillo, la gente de Jetbrain lo ha hecho muy bien.
+Requerimientos:
+1. Intellij 14.1 o Android Studio: [IntelliJ IDEA Minimal Survival Guide](http://hadihariri.com/2014/01/06/intellij-idea-minimal-survival-guide/).
+	Puedes hacerlo desde la página de [descargas](https://confluence.jetbrains.com/display/IDEADEV/IDEA+14.1+EAP) de Jetbrains
+2. JDK 1.6 o superior: Puedes hacerlo desde la página de [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html) o si estas muy perdido puedes recurrir al tutorial [JVM Minimal Survive Guide](http://hadihariri.com/2013/12/29/jvm-minimal-survival-guide-for-the-dotnet-developer/)
+3. Plugin de Kotlin: Se puede hacer desde el propio IDE, abre IntelliJ: File -> Plugins, y busca ==Kotlin==, listo :).
 
-**Compilador**
+##Compilador
 Cuando investigué sobre Kotlin me llamó la atención su compilador, hasta ese entonces no sabía nada de como funcionaban los compilador de los lenguajes que funcionan sobre Java, especificamente en el caso de Kotlin, requiere que Kotlin entienda los ficheros fuente de Java y sus binarios, y viciversa, es decir que Java entienda los ficheros fuente de Kotlin y sus binarios. La idea de que el compilador de Kotlin entienda los ficheros fuente de Java es fácil de imaginar, pero hacer que javac, el compilador de Java, entienda los ficheros fuente de Kotlin es claramente imposible.
 
 Actualmente el estado de los compiladores es el siguiente:

@@ -8,6 +8,159 @@
     
     
       <item>
+        <title>Kotlin</title>
+        <description>&lt;p&gt;Some weeks ago, at the Droidcon 2015 in Madrid, several lecturers like Antonio Leiva &lt;a href=&quot;http://antonioleiva.com/&quot;&gt;Antonio Leiva&lt;/a&gt;, talked about a programming language that called my attention, Kotlin. I had already heard about Kotlin but not in detail, so I started a research and I did some demos, the result was good, I really liked it, its learning curve is surprisingly easy and fast and its functional components are really interesting.&lt;/p&gt;
+
+&lt;p&gt;Kotlin is created and maintained by Jetbrains, the company behind IntelliJ, and it runs on the JVM (Java Virtual Machine). It is an object oriented language and as I mentioned before, it has some functional aspects which make it a very interesting Java alternative.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Why I like Kotlin&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Its learning curve is fast, everybody compares Kotlin with Scala, I am a beginner with both so make a comparison is hard but I find Kotlin easier and maybe also more limited than Scala.&lt;/li&gt;
+&lt;li&gt;It is lightweight; the Kotlin library is only 1073KB.&lt;/li&gt;
+&lt;li&gt;It offers a good Java interoperability.&lt;/li&gt;
+&lt;li&gt;It is becoming a real Java alternative to the Android community, I have not tried yet the Android version, but programmers are really excited with it.&lt;/li&gt;
+&lt;li&gt;Probably Kotlin will have a great support by Jetbrains, if Kotlin is successful they will sell more licenses of their IDE given their easy integration.&lt;/li&gt;
+&lt;li&gt;To this day, there is not a real Java successor, a lot of JVM based languages have emerged which offers different interesting characteristics such closures, modularity, functional components, but no one has reached the throne yet. Kotlin offers all those aspects but also Jetbrains supports and [reification](&lt;a href=&quot;https://en.wikipedia.org/wiki/Reification_(computer_science)&quot;&gt;https://en.wikipedia.org/wiki/Reification_(computer_science)&lt;/a&gt;, to know more about reification visit this &lt;a href=&quot;http://gafter.blogspot.com.es/2006/11/reified-generics-for-java.html&quot;&gt;post&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;installation&quot;&gt;Installation&lt;/h2&gt;
+
+&lt;p&gt;Very simple, Jetbrain people have done really nice.
+Requirements:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;IntelliJ 14.1 or newer, it also works with Andorid Studio:  &lt;a href=&quot;http://hadihariri.com/2014/01/06/intellij-idea-minimal-survival-guide/&quot;&gt;IntelliJ IDEA Minimal Survival Guide&lt;/a&gt;.
+You can download it from &lt;a href=&quot;https://confluence.jetbrains.com/display/IDEADEV/IDEA+14.1+EAP&quot;&gt;downloads&lt;/a&gt; from Jetbrains.&lt;/li&gt;
+&lt;li&gt;JDK 1.6 or superior: You can download it from the official web page  &lt;a href=&quot;http://www.oracle.com/technetwork/java/javase/downloads/index.html&quot;&gt;Oracle&lt;/a&gt;, or maybe you prefer to use this fantastic tutorial  &lt;a href=&quot;http://hadihariri.com/2013/12/29/jvm-minimal-survival-guide-for-the-dotnet-developer/&quot;&gt;JVM Minimal Survive Guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Kotlin plugin: You can download it from the IDE, just open IntelliJ and go: File -&amp;gt; Plugins and search ==Kotlin==.&lt;/li&gt;
+&lt;li&gt;Done :).&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Compiler&lt;/strong&gt;
+Kotlin called my attention for its compiler, so far I didn&amp;rsquo;t know anything about JVM based programming languages so it was very interesting what I found .
+To compile mixed projects, in our case Kotlin, requires it to understand the Java source files and its binaries, it also requires Java to understand the Kotlin source files and it binaries. The idea of Kotlin compiler to understand Java source files is easy to imagine, but the opposite thing, to make the javac (Java compiler) to understand Kotlin files is hard.&lt;/p&gt;
+
+&lt;p&gt;So far the state of the art is the following.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Groovy&lt;/em&gt;:
+Groovy generates stubs from the code, this means the Java source files contains only Groovy classes, methods and fields declarations, later on it executes javac over the stubs and the Java source files. As a result everything compiles, but the Groovy methods has no body yet, to solve this issue it executes the Groovy compiler and replace the classes contained inside the stubs.
+This process has some drawbacks, time and complexity.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Scala and Kotlin&lt;/em&gt;:
+Both languages teach their compilers to understand the Java source files, so both can generate the *.class files and execute javac over them.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;characteristics:&quot;&gt;Characteristics:&lt;/h2&gt;
+
+&lt;h6 id=&quot;java-interoperabilty&quot;&gt;Java interoperabilty&lt;/h6&gt;
+
+&lt;p&gt;Kotlin was designed with interoperability in mind, and they achieved it! I didn’t try it too much, just some test code doing the koans and seems really easy to understand and to implement in both sides, from Kotlin and from Java.&lt;/p&gt;
+
+&lt;p&gt;Here the documentation is very clear so I recommend taking a look to it.&lt;/p&gt;
+
+&lt;p&gt;More information on the &lt;a href=&quot;http://kotlinlang.org/docs/reference/java-interop.html&quot;&gt;Official page&lt;/a&gt; or you can check the resolved koan in &lt;a href=&quot;https://github.com/Jachu5/Koans/tree/master/src/i_introduction/_5_Nullable_Types&quot;&gt;Github&lt;/a&gt;&lt;/p&gt;
+
+&lt;h6 id=&quot;null-safety&quot;&gt;Null Safety&lt;/h6&gt;
+
+&lt;p&gt;This is one of my favorite characteristics that solves one of the most disgusting problem when programming, the null reference.
+Null in Kotlin is a &amp;ldquo;first-class citizen&amp;rdquo; in its type system, in other words, types are aware that they can be null. In my opinion this is very useful since the NullPointerException in Java is something really nasty and evolves into a lot of boilerplate code and defensive programming.&lt;/p&gt;
+
+&lt;p&gt;Kotlin can make distinction between those types that can make a reference to null and those that cannot.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;var a: String = &amp;quot;abc&amp;quot;
+a = null // compilation error
+val l = a.lenght() // this will no generate a NullPointerException
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We can make a type &amp;ldquo;nullable&amp;rdquo;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;var b: String? = &amp;quot;abc&amp;quot;
+b = null // ok
+val l = b.length() // Now this can generate a NullPointerException so it will no compile.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;But if you really want to deal with null, Kotlin gives us different ways to check any possible null reference:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Using explicit check:
+The compiler detects that has been a null check and you can saftly call the &lt;code&gt;lenght()&lt;/code&gt; function.
+&lt;code&gt;
+if ( b!= null){
+b.lenght()
+}
+&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Safe Calls
+Using the operator &lt;code&gt;?&lt;/code&gt;, this will return the value of the function &lt;code&gt;lenght()&lt;/code&gt;, and null otherwise.
+&lt;code&gt;
+b?.length()
+&lt;/code&gt;
+And you can make chains like this:
+&lt;code&gt;
+inbox?.email?.message
+&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Operador Elvis &amp;ldquo;?:&amp;rdquo;
+Similar to the Groovy&amp;rsquo;s one, both expresion are the same:
+ &lt;code&gt;
+ val l: Int = if (b != null) b.length() else -1
+ val l = b?.length() ?: -1
+&lt;/code&gt;
+ If the exression to the left of &lt;code&gt;?:&lt;/code&gt; is null it returns the value, otherwise it &lt;strong&gt;evaluaes&lt;/strong&gt; and returns the right-hand expression.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;More information on the &lt;a href=&quot;http://kotlinlang.org/docs/reference/java-interop.html&quot;&gt;Official page&lt;/a&gt; or you can check the resolved koan in my &lt;a href=&quot;https://github.com/Jachu5/Koans/tree/master/src/i_introduction/_5_Nullable_Types&quot;&gt;Github&lt;/a&gt;&lt;/p&gt;
+
+&lt;h6 id=&quot;high-order-function-and-lambdas-support&quot;&gt;High order function and Lambdas support&lt;/h6&gt;
+
+&lt;p&gt;I love it.
+Basically a high order function is a function that can take other functions as parameters o it can return another function, here you got and example&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;list.filter {it % 2 == 1}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In the example a list is filtered removing all the even elements, it uses a predefined function &lt;code&gt;filter&lt;/code&gt; which you can pass any other function as an argument &lt;code&gt;it % 2 == 1&lt;/code&gt; and will be applied to the whole collection.&lt;/p&gt;
+
+&lt;p&gt;Probably the easiest way to understand it reading the &lt;a href=&quot;http://kotlinlang.org/docs/reference/lambdas.html&quot;&gt;Official documentation&lt;/a&gt;and checking the resolved koan &lt;a href=&quot;https://github.com/Jachu5/Koans/blob/master/src/i_introduction/_3_Lambdas/Lambdas.kt&quot;&gt;Github&lt;/a&gt;&lt;/p&gt;
+
+&lt;h6 id=&quot;data-classes&quot;&gt;Data Classes&lt;/h6&gt;
+
+&lt;p&gt;Very useful, data classes are those which only exist to store information, Data Classes will generate certain functionalities such as equals(), hasCode(), toString or copy function, Currently Google offers the AutoValue library wich do the same &lt;a href=&quot;https://github.com/google/auto/tree/master/value&quot;&gt;AutoValue&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;data class Money(val currency: String, val amount: Int)
+val money = Money(&amp;quot;USD&amp;quot;, 100)
+val moreMoney = money.copy(amount = 200)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We can declare default values, so we don&amp;rsquo;t need to declare different constructors.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;data class Money(val currency: String = &amp;quot;Euro&amp;quot;, val amount: Int = 0)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And we have Multi-declarations:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;val jane = User(&amp;quot;Jane&amp;quot;, 35) 
+val (name, age) = jane
+println(&amp;quot;$name, $age years of age&amp;quot;) // Imprime &amp;quot;Jane, 35 years of age&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;More information on the &lt;a href=&quot;http://kotlinlang.org/docs/reference/data-classes.html&quot;&gt;Official page&lt;/a&gt; or you can check the resolved koan in &lt;a href=&quot;https://github.com/Jachu5/Koans/tree/master/src/i_introduction/_7_Data_Classes&quot;&gt;Github&lt;/a&gt;&lt;/p&gt;
+
+&lt;h6 id=&quot;traits&quot;&gt;Traits&lt;/h6&gt;
+
+&lt;p&gt;You can understand Traits as interfaces where you can implement functions, I have no example since I only know them from Scala and since then I really miss them in my daily work, you have got more info in this &lt;a href=&quot;http://blog.jetbrains.com/kotlin/2011/08/multiple-inheritance-part-2-possible-directions/&quot;&gt;post&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h6 id=&quot;extension-fuctions&quot;&gt;Extension Fuctions&lt;/h6&gt;
+
+&lt;p&gt;Kotlin allows to extend the functionalities of any class (Kotlin or Java) with no heritage, just using the &amp;ldquo;extension&amp;rdquo; declaration, this members are introduced in a static way and make us to forget the &amp;ldquo;Utils&amp;rdquo; classes full of static functions, this way we obtain a cleaner code.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;fun String.last() : Char {
+  return this[length - 1]
+}
+val x = &amp;quot;Hey!&amp;quot;
+println(x.last()) // Prints &amp;quot;!&amp;quot;.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Reading about this I discovered that other languages like C# also implements this functionality.&lt;/p&gt;
+
+&lt;p&gt;More information on the &lt;a href=&quot;http://kotlinlang.org/docs/reference/extensions.html&quot;&gt;Official page&lt;/a&gt; or you can check the resolved koan in &lt;a href=&quot;https://github.com/Jachu5/Koans/tree/master/src/i_introduction/_8_Extension_Functions&quot;&gt;Github&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;To be honest, as I mentioned before, my adventure with Kotlin has been short, I only made some programming doing the koans but I a really like it and I think it gives new opportunities to Java.
+I hope you like the post and thank for reading it!&lt;/p&gt;
+</description>
+        <pubDate>Sun, 04 Oct 2015 00:00:00 +0200</pubDate>
+        <link>/Kotlin_en/</link>
+        <guid isPermaLink="true">/Kotlin_en/</guid>
+      </item>
+    
+      <item>
         <title>Jekyll</title>
         <description>&lt;p&gt;J&lt;em&gt;ekyll&lt;/em&gt; is a very simple static web generator, which makes easier just to focus in the important thing, our web content rather than coding. It is specially design for blogging and it allows to use GitHub as a hosting platform, the result is a very simple tool which takes advantage of GitHub&amp;rsquo;s version control and allows people to create blogs in a very simple way using static HTML, it removes the complexity of other tools such as WordPress or Mephisto which needs to manage DDBB and other issues, an we only need to care about creating our content creating simple text file in Textile (&lt;a href=&quot;http://es.wikipedia.org/wiki/Markdown&quot; title=&quot;Markdown&quot;&gt;&amp;ldquo;Markdown&amp;rdquo;&lt;/a&gt;).&lt;/p&gt;
 
@@ -15,7 +168,7 @@
 
 &lt;p&gt;You can visit Jekyll&amp;rsquo;s official &lt;a href=&quot;http://jekyllrb.com/&quot; title=&quot;Jekyll&quot;&gt;web&lt;/a&gt; and follow the installation tutorial, and probably you will get a wrong impression, it is not as easy at seems, truth to be told if we want to install Jekyll locally and deploy a web, things get complicated, so that I am going to try to explain the whole process I made explaining the doubts I had got and the problem I had.&lt;/p&gt;
 
-&lt;h2&gt;Installation&lt;/h2&gt;
+&lt;h2 id=&quot;installation&quot;&gt;Installation&lt;/h2&gt;
 
 &lt;p&gt;GitHub allows to host public webs, it is free and the use github.io as a domain, in case you account to be a free account the complete domain name may be something like this &lt;strong&gt;user.github.io&lt;/strong&gt;&lt;/p&gt;
 
@@ -25,16 +178,16 @@
 
 &lt;p&gt;So far, so good, now we are going to follow step by step the tutorial provided by GitHub to use github-pages: &lt;a href=&quot;https://help.github.com/articles/using-jekyll-with-pages/&quot; title=&quot;GitHub Pages&quot;&gt;GitHub Pages&lt;/a&gt;:&lt;/p&gt;
 
-&lt;h3&gt;Requirements:&lt;/h3&gt;
+&lt;h3 id=&quot;requirements:&quot;&gt;Requirements:&lt;/h3&gt;
 
-&lt;h4&gt;&lt;strong&gt;1.Ruby&lt;/strong&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;1.ruby&quot;&gt;&lt;strong&gt;1.Ruby&lt;/strong&gt;&lt;/h4&gt;
 
 &lt;p&gt;I am using Ubuntu 12.04 which already comes with &lt;a href=&quot;https://www.ruby-lang.org/es/&quot; title=&quot;Ruby&quot;&gt;Ruby&lt;/a&gt; 1.8, we can easily check this with the following command line:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ruby --version
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Jekyll needs version 1.9.3 or higher so it needs to be updated, to avoid configuration problems a version clash, it is recommend to use RVM to manage and update our Ruby environment, probably our first thought will be to use the traditional package manager that comes with Linux &amp;lsquo;$ apt-get&amp;rsquo;, but this constraints us to check decencies, version and &lt;a href=&quot;http://es.wikipedia.org/wiki/RubyGems&quot; title=&quot;gems&quot;&gt;gems&lt;/a&gt; conflicts, RVM safe us of all these worries and we can change Ruby version in a fast and easy way, it allows us to work in multiple Ruby environments independent and self-contained from each other.&lt;/p&gt;
 
-&lt;h5&gt;Installing RVM:&lt;/h5&gt;
+&lt;h5 id=&quot;installing-rvm:&quot;&gt;Installing RVM:&lt;/h5&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;First we need to install curl, you can find more information about curl &lt;a href=&quot;http://linux.about.com/od/commands/l/blcmdl1_curl.htm&quot; title=&quot;curl&quot;&gt;here&lt;/a&gt;:&lt;/p&gt;
@@ -56,7 +209,7 @@ ruby 2.0.xxxxx
 
 &lt;p&gt;So far, so good, we already have install the Ruby version we need, and also some useful tools like RVM, a command-line tool which allows you to easily install, manage, and work with multiple ruby environments from interpreters to sets of gems, which personally I didn&amp;rsquo;t know before and I found very useful.&lt;/p&gt;
 
-&lt;h4&gt;&lt;strong&gt;2.Bundler&lt;/strong&gt;:&lt;/h4&gt;
+&lt;h4 id=&quot;2.bundler:&quot;&gt;&lt;strong&gt;2.Bundler&lt;/strong&gt;:&lt;/h4&gt;
 
 &lt;p&gt;Bundler is a package manager for Ruby, provides a consistent environment for Ruby projects by tracking and installing the exact gems and versions that are needed. We just need to create and edit a file in our project root path called &lt;em&gt;Gemfile&lt;/em&gt; where we specify the source to download the gems and the gems we want to download, from here Bundle takes care of the whole process to detect and install the specified gems.&lt;/p&gt;
 
@@ -67,7 +220,7 @@ ruby 2.0.xxxxx
 &lt;/ol&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gem install bundler
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;&lt;strong&gt;3.Jekyll&lt;/strong&gt;:&lt;/h4&gt;
+&lt;h4 id=&quot;3.jekyll:&quot;&gt;&lt;strong&gt;3.Jekyll&lt;/strong&gt;:&lt;/h4&gt;
 
 &lt;p&gt;We are going to use GitHub Pages to host the web, so that the first step is to a have a GitHub repository and clone it in our machine, we have already talk about the different kind of web we can generate using GitHub pages, user or project, in this case we are generating a user web (remember to work in the master branch), so we name the repository as follows: &lt;strong&gt;username.github.io&lt;/strong&gt;, once it is created we clone it.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone https://github.com/username/username.github.io
@@ -76,15 +229,15 @@ ruby 2.0.xxxxx
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;source &amp;#39;https://rubygems.org&amp;#39;
 gem &amp;#39;github-pages&amp;#39;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;Running Jekyll&lt;/h2&gt;
+&lt;h2 id=&quot;running-jekyll&quot;&gt;Running Jekyll&lt;/h2&gt;
 
 &lt;p&gt;Ok, we have installed all the requirements in our local environment, so now lets try everything.
 Running Jekyll is very easy, we are going to use Bundler through the console using the &lt;em&gt;exec&lt;/em&gt; command which uses the gems already specified in the &lt;em&gt;Gemfile&lt;/em&gt;.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;jekyll serve
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;If everything worked out we should be able to check our page http://localhost:4000&lt;/p&gt;
+&lt;p&gt;If everything worked out we should be able to check our page &lt;a href=&quot;http://localhost:4000&quot;&gt;http://localhost:4000&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 
 &lt;p&gt;So far I’ve only been using Jekyll for a matter of days to create this blog and write this post, I found it as a very powerful tool that avoid the user to take care of things such us DDBB or PHP, which is very useful. Maybe the most annoying thing is the official documentation, which I thing is scattered and disorganized, but just after a couple of working afternoons the feelings get better and better once the installation process have finished.&lt;/p&gt;
 
@@ -92,7 +245,7 @@ Running Jekyll is very easy, we are going to use Bundler through the console usi
 
 &lt;p&gt;Thanks for reading and I hope you find it useful.&lt;/p&gt;
 
-&lt;h2&gt;References:&lt;/h2&gt;
+&lt;h2 id=&quot;references:&quot;&gt;References:&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Jekyll: &lt;a href=&quot;http://jekyllrb.com/&quot; title=&quot;Jekyll&quot;&gt;http://jekyllrb.com/&lt;/a&gt;.&lt;/li&gt;

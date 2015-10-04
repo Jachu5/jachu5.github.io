@@ -2,6 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
+      <loc>/Kotlin_en/</loc>
+      
+      
+        <xhtml:link rel="alternate" hreflang="en" href="/Kotlin_en/" />
+      
+        <xhtml:link rel="alternate" hreflang="es" href="/Kotlin/" />
+      
+      <lastmod>2015-10-04T00:00:00+02:00</lastmod>
+      <changefreq>weekly</changefreq>
+    </url>
+  
+    <url>
+      <loc>/Kotlin/</loc>
+      
+      
+        <xhtml:link rel="alternate" hreflang="en" href="/Kotlin_en/" />
+      
+        <xhtml:link rel="alternate" hreflang="es" href="/Kotlin/" />
+      
+      <lastmod>2015-10-04T00:00:00+02:00</lastmod>
+      <changefreq>weekly</changefreq>
+    </url>
+  
+    <url>
       <loc>/projets/</loc>
       
       

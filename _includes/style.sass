@@ -16,7 +16,6 @@ $line: 30
 *
   padding: 0
   margin: 0 auto
-  list-style-type: none
   font-weight: normal
   text-align: justify
   -webkit-text-size-adjust: none
@@ -37,6 +36,7 @@ img
   width: 100%
 
 .article, .nav ul
+  list-style-type: none
   max-width: 40em
   +padding($main,0,0,1)
 
@@ -82,6 +82,10 @@ h5
     color: #ccc
     +font(19)
     +padding(20,1,1)
+  ul
+    list-style-type: none
+  li
+    list-style-type: none
   a
     +font(20)
     display: block
@@ -100,6 +104,7 @@ h5
 {% elsif page.title == "Projets" or page.title == "Projects" %}
 
 .list
+  list-style-type: none
   +padding(18,0,3,3)
 
   li

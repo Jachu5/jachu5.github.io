@@ -2,7 +2,7 @@ permalink: /:title/
 
 markdown: redcarpet
 redcarpet:
-  extensions: ['smart', 'superscript']
+  extensions: ['lax_spacing', 'smart', 'superscript','fenced_code_blocks', 'autolink', 'tables', 'with_toc_data'] 
 
 gems:
   - jekyll-redirect-from

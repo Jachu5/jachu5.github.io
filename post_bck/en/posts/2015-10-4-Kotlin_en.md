@@ -24,7 +24,7 @@ Requirements:
 3. Kotlin plugin: You can download it from the IDE, just open IntelliJ and go: File -> Plugins and search ==Kotlin==.
 4. Done :).
 
-**Compiler**
+##Compiler
 Kotlin called my attention for its compiler, so far I didn't know anything about JVM based programming languages so it was very interesting what I found .
 To compile mixed projects, in our case Kotlin, requires it to understand the Java source files and its binaries, it also requires Java to understand the Kotlin source files and it binaries. The idea of Kotlin compiler to understand Java source files is easy to imagine, but the opposite thing, to make the javac (Java compiler) to understand Kotlin files is hard.
 
@@ -38,7 +38,7 @@ Both languages teach their compilers to understand the Java source files, so bot
 
 
 ## Characteristics:
-###### Java interoperabilty
+### Java interoperabilty
 Kotlin was designed with interoperability in mind, and they achieved it! I didn’t try it too much, just some test code doing the koans and seems really easy to understand and to implement in both sides, from Kotlin and from Java.
 
 Here the documentation is very clear so I recommend taking a look to it.
@@ -46,7 +46,7 @@ Here the documentation is very clear so I recommend taking a look to it.
 More information on the [Official page](http://kotlinlang.org/docs/reference/java-interop.html) or you can check the resolved koan in [Github](https://github.com/Jachu5/Koans/tree/master/src/i_introduction/_5_Nullable_Types)
 
 
-###### Null Safety
+### Null Safety
 This is one of my favorite characteristics that solves one of the most disgusting problem when programming, the null reference.
 Null in Kotlin is a "first-class citizen" in its type system, in other words, types are aware that they can be null. In my opinion this is very useful since the NullPointerException in Java is something really nasty and evolves into a lot of boilerplate code and defensive programming.
 
@@ -92,7 +92,7 @@ if ( b!= null){
 
 More information on the [Official page](http://kotlinlang.org/docs/reference/java-interop.html) or you can check the resolved koan in my [Github](https://github.com/Jachu5/Koans/tree/master/src/i_introduction/_5_Nullable_Types)
 
-###### High order function and Lambdas support
+### High order function and Lambdas support
 I love it.
 Basically a high order function is a function that can take other functions as parameters o it can return another function, here you got and example
  ```
@@ -102,7 +102,7 @@ In the example a list is filtered removing all the even elements, it uses a pred
 
 Probably the easiest way to understand it reading the [Official documentation](http://kotlinlang.org/docs/reference/lambdas.html)and checking the resolved koan [Github](https://github.com/Jachu5/Koans/blob/master/src/i_introduction/_3_Lambdas/Lambdas.kt)
 
-###### Data Classes
+### Data Classes
 Very useful, data classes are those which only exist to store information, Data Classes will generate certain functionalities such as equals(), hasCode(), toString or copy function, Currently Google offers the AutoValue library wich do the same [AutoValue](https://github.com/google/auto/tree/master/value).
 
 ```
@@ -125,10 +125,10 @@ println("$name, $age years of age") // Imprime "Jane, 35 years of age"
 More information on the [Official page](http://kotlinlang.org/docs/reference/data-classes.html) or you can check the resolved koan in [Github](https://github.com/Jachu5/Koans/tree/master/src/i_introduction/_7_Data_Classes)
 
 
-###### Traits
+### Traits
 You can understand Traits as interfaces where you can implement functions, I have no example since I only know them from Scala and since then I really miss them in my daily work, you have got more info in this [post](http://blog.jetbrains.com/kotlin/2011/08/multiple-inheritance-part-2-possible-directions/).
 
-###### Extension Fuctions######
+### Extension Fuctions######
 Kotlin allows to extend the functionalities of any class (Kotlin or Java) with no heritage, just using the "extension" declaration, this members are introduced in a static way and make us to forget the "Utils" classes full of static functions, this way we obtain a cleaner code.
 
 ````

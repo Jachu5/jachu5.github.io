@@ -35,12 +35,15 @@ a
 img
   width: 100%
 
+ul, ol
+  padding-top: 1em
+  padding-left: 1em
+
 .article, .nav ul
-  list-style-type: none
   max-width: 40em
   +padding($main,0,0,1)
 
-h1, h2, hr, .date, .nav, .foot, .bg
+h1, h2, hr, .date, .nav, .foot, .bg,
   text-align: center
 
 p
@@ -79,11 +82,12 @@ h5
 .list
   +padding(18,1,1)
   h2
-    color: #ccc
+    color: #A4A4A4
     +font(19)
     +padding(20,1,1)
   ul
     list-style-type: none
+
   li
     list-style-type: none
   a
@@ -97,7 +101,7 @@ h5
       text-align: right
       width: 2em
       position: absolute
-      color: #ddd
+      color: #A4A4A4
 
 // Projects list
 
@@ -166,7 +170,7 @@ sup
   +padding(19,3,1)
   +font(19)
   font-style: italic
-  color: #ccc
+  color: #A4A4A4
 
 p+ul li
   padding-left: 2em
@@ -198,6 +202,8 @@ h1, .bg
 .nav
   position: fixed
   background-color: #191919
+  ul
+    list-style-type: none
 
   li
     float: left

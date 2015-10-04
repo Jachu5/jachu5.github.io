@@ -4,10 +4,16 @@ name: kotlin
 ---
 Some weeks ago, at the Droidcon 2015 in Madrid, several lecturers like Antonio Leiva [Antonio Leiva](http://antonioleiva.com/), talked about a programming language that called my attention, Kotlin. I had already heard about Kotlin but not in detail, so I started a research and I did some demos, the result was good, I really liked it, its learning curve is surprisingly easy and fast and its functional components are really interesting.
 
+I am a kotlin beginner so any suggestion will be welcome, so far, I only have done a few introduction exercices that Jetbrains people call Koans, bellow you can find the link to the official web page and also to my github repo with the first block solved, I hope you find them useful:
+
+* Kotlin [Koans](http://kotlinlang.org/docs/tutorials/koans.html).
+* First Koan block of exercices solved in my Github [github](https://github.com/Jachu5/Koans).
+
 Kotlin is created and maintained by Jetbrains, the company behind IntelliJ, and it runs on the JVM (Java Virtual Machine). It is an object oriented language and as I mentioned before, it has some functional aspects which make it a very interesting Java alternative.
 
 
-**Why I like Kotlin**
+####Why I like Kotlin
+
 - Its learning curve is fast, everybody compares Kotlin with Scala, I am a beginner with both so make a comparison is hard but I find Kotlin easier and maybe also more limited than Scala.
 - It is lightweight; the Kotlin library is only 1073KB.
 - It offers a good Java interoperability.
@@ -24,7 +30,7 @@ Requirements:
 3. Kotlin plugin: You can download it from the IDE, just open IntelliJ and go: File -> Plugins and search ==Kotlin==.
 4. Done :).
 
-**Compiler**
+## Compiler
 Kotlin called my attention for its compiler, so far I didn't know anything about JVM based programming languages so it was very interesting what I found .
 To compile mixed projects, in our case Kotlin, requires it to understand the Java source files and its binaries, it also requires Java to understand the Kotlin source files and it binaries. The idea of Kotlin compiler to understand Java source files is easy to imagine, but the opposite thing, to make the javac (Java compiler) to understand Kotlin files is hard.
 
@@ -38,7 +44,7 @@ Both languages teach their compilers to understand the Java source files, so bot
 
 
 ## Characteristics:
-###### Java interoperabilty
+#### Java interoperabilty
 Kotlin was designed with interoperability in mind, and they achieved it! I didn’t try it too much, just some test code doing the koans and seems really easy to understand and to implement in both sides, from Kotlin and from Java.
 
 Here the documentation is very clear so I recommend taking a look to it.
@@ -46,7 +52,7 @@ Here the documentation is very clear so I recommend taking a look to it.
 More information on the [Official page](http://kotlinlang.org/docs/reference/java-interop.html) or you can check the resolved koan in [Github](https://github.com/Jachu5/Koans/tree/master/src/i_introduction/_5_Nullable_Types)
 
 
-###### Null Safety
+#### Null Safety
 This is one of my favorite characteristics that solves one of the most disgusting problem when programming, the null reference.
 Null in Kotlin is a "first-class citizen" in its type system, in other words, types are aware that they can be null. In my opinion this is very useful since the NullPointerException in Java is something really nasty and evolves into a lot of boilerplate code and defensive programming.
 
@@ -92,7 +98,7 @@ if ( b!= null){
 
 More information on the [Official page](http://kotlinlang.org/docs/reference/java-interop.html) or you can check the resolved koan in my [Github](https://github.com/Jachu5/Koans/tree/master/src/i_introduction/_5_Nullable_Types)
 
-###### High order function and Lambdas support
+#### High order function and Lambdas support
 I love it.
 Basically a high order function is a function that can take other functions as parameters o it can return another function, here you got and example
  ```
@@ -102,7 +108,7 @@ In the example a list is filtered removing all the even elements, it uses a pred
 
 Probably the easiest way to understand it reading the [Official documentation](http://kotlinlang.org/docs/reference/lambdas.html)and checking the resolved koan [Github](https://github.com/Jachu5/Koans/blob/master/src/i_introduction/_3_Lambdas/Lambdas.kt)
 
-###### Data Classes
+#### Data Classes
 Very useful, data classes are those which only exist to store information, Data Classes will generate certain functionalities such as equals(), hasCode(), toString or copy function, Currently Google offers the AutoValue library wich do the same [AutoValue](https://github.com/google/auto/tree/master/value).
 
 ```
@@ -125,10 +131,10 @@ println("$name, $age years of age") // Imprime "Jane, 35 years of age"
 More information on the [Official page](http://kotlinlang.org/docs/reference/data-classes.html) or you can check the resolved koan in [Github](https://github.com/Jachu5/Koans/tree/master/src/i_introduction/_7_Data_Classes)
 
 
-###### Traits
+#### Traits
 You can understand Traits as interfaces where you can implement functions, I have no example since I only know them from Scala and since then I really miss them in my daily work, you have got more info in this [post](http://blog.jetbrains.com/kotlin/2011/08/multiple-inheritance-part-2-possible-directions/).
 
-###### Extension Fuctions######
+#### Extension Fuctions
 Kotlin allows to extend the functionalities of any class (Kotlin or Java) with no heritage, just using the "extension" declaration, this members are introduced in a static way and make us to forget the "Utils" classes full of static functions, this way we obtain a cleaner code.
 
 ````

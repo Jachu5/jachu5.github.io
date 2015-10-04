@@ -98,26 +98,38 @@
     </url>
   
     <url>
-      <loc>/journal/</loc>
+      <loc>/index/</loc>
       
       
-        <xhtml:link rel="alternate" hreflang="es" href="/journal/" />
+        <xhtml:link rel="alternate" hreflang="en" href="/index/" />
       
-        <xhtml:link rel="alternate" hreflang="en" href="/" />
+        <xhtml:link rel="alternate" hreflang="es" href="/articulos/" />
       
       <lastmod>2014-08-31T00:00:00+02:00</lastmod>
       <changefreq>weekly</changefreq>
     </url>
   
     <url>
-      <loc>/</loc>
+      <loc>/articulos/</loc>
       
       
-        <xhtml:link rel="alternate" hreflang="es" href="/journal/" />
+        <xhtml:link rel="alternate" hreflang="en" href="/index/" />
       
-        <xhtml:link rel="alternate" hreflang="en" href="/" />
+        <xhtml:link rel="alternate" hreflang="es" href="/articulos/" />
       
       <lastmod>2014-08-31T00:00:00+02:00</lastmod>
+      <changefreq>weekly</changefreq>
+    </url>
+  
+    <url>
+      <loc>/sobre-mi/</loc>
+      
+      
+        <xhtml:link rel="alternate" hreflang="es" href="/sobre-mi/" />
+      
+        <xhtml:link rel="alternate" hreflang="en" href="/about/" />
+      
+      <lastmod>2014-08-24T00:00:00+02:00</lastmod>
       <changefreq>weekly</changefreq>
     </url>
   
@@ -125,21 +137,9 @@
       <loc>/about/</loc>
       
       
-        <xhtml:link rel="alternate" hreflang="en" href="/about/" />
-      
-        <xhtml:link rel="alternate" hreflang="es" href="/a-propos/" />
-      
-      <lastmod>2014-08-24T00:00:00+02:00</lastmod>
-      <changefreq>weekly</changefreq>
-    </url>
-  
-    <url>
-      <loc>/a-propos/</loc>
-      
+        <xhtml:link rel="alternate" hreflang="es" href="/sobre-mi/" />
       
         <xhtml:link rel="alternate" hreflang="en" href="/about/" />
-      
-        <xhtml:link rel="alternate" hreflang="es" href="/a-propos/" />
       
       <lastmod>2014-08-24T00:00:00+02:00</lastmod>
       <changefreq>weekly</changefreq>

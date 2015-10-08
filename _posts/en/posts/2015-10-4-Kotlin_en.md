@@ -2,7 +2,7 @@
 title: Kotlin
 name: kotlin
 ---
-Some weeks ago, at the Droidcon 2015 in Madrid, several lecturers like Antonio Leiva [Antonio Leiva](http://antonioleiva.com/), talked about a programming language that called my attention, Kotlin. I had already heard about Kotlin but not in detail, so I started a research and I did some demos, the result was good, I really liked it, its learning curve is surprisingly easy and fast and its functional components are really interesting.
+Some weeks ago, at the Droidcon 2015 in Madrid, several lecturers like [Antonio Leiva](http://antonioleiva.com/), talked about a programming language that called my attention, Kotlin. I had already heard about Kotlin but not in detail, so I started a research and I did some demos, the result was good, I really liked it, its learning curve is surprisingly easy and fast and its functional components are really interesting.
 
 I am a kotlin beginner so any suggestion will be welcome, so far, I only have done a few introduction exercices that Jetbrains people call Koans, bellow you can find the link to the official web page and also to my github repo with the first block solved, I hope you find them useful:
 

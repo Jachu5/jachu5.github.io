@@ -2,9 +2,9 @@
 title: Kotlin
 name: kotlin
 ---
-Some weeks ago, at the Droidcon 2015 in Madrid, several lecturers like [Antonio Leiva](http://antonioleiva.com/), talked about a programming language that called my attention, Kotlin. I had already heard about Kotlin but not in detail, so I started a research and I did some demos, the result was good, I really liked it, its learning curve is surprisingly easy and fast and its functional components are really interesting.
+Some weeks ago, at the Droidcon 2015 in Madrid, several speakers like [Antonio Leiva](http://antonioleiva.com/), talked about a programming language that called my attention, Kotlin. I had already heard about Kotlin but not in so much detail, so I started to research and do some demos, the result was good: I really liked it. Its learning curve is surprisingly easy and fast and its functional components are really interesting.
 
-I am a kotlin beginner so any suggestion will be welcome, so far, I only have done a few introduction exercices that Jetbrains people call Koans, bellow you can find the link to the official web page and also to my github repo with the first block solved, I hope you find them useful:
+Disclamer: I am a kotlin beginner so any suggestion will be welcome. So far, I only have done a few introduction exercices that Jetbrains people call Koans, bellow you can find the link to the official web page and also to my github repo with the first block solved, I hope you find them useful:
 
 * Kotlin [Koans](http://kotlinlang.org/docs/tutorials/koans.html).
 * First Koan block of exercices solved in my Github [github](https://github.com/Jachu5/Koans).
@@ -14,11 +14,11 @@ Kotlin is created and maintained by Jetbrains, the company behind IntelliJ, and 
 
 ####Why I like Kotlin
 
-- Its learning curve is fast, everybody compares Kotlin with Scala, I am a beginner with both so make a comparison is hard but I find Kotlin easier and maybe also more limited than Scala.
+- Its learning curve is fast, everybody compares Kotlin with Scala and I am a beginner with both so make a comparison is hard, anyway I find Kotlin easier and maybe also more limited than Scala.
 - It is lightweight; the Kotlin library is only 1073KB.
 - It offers a good Java interoperability.
-- It is becoming a real Java alternative to the Android community, I have not tried yet the Android version, but programmers are really excited with it.
-- Probably Kotlin will have a great support by Jetbrains, if Kotlin is successful they will sell more licenses of their IDE given their easy integration.
+- It is becoming a real Java alternative to the Android community, I have not tried yet the Android version, but people are really excited with it.
+- Probably Kotlin will have a great support by Jetbrains, if Kotlin have success they will sell more licenses of their IDE given their easy integration.
 - To this day, there is not a real Java successor, a lot of JVM based languages have emerged which offers different interesting characteristics such closures, modularity, functional components, but no one has reached the throne yet. Kotlin offers all those aspects but also Jetbrains supports and [reification](https://en.wikipedia.org/wiki/Reification_(computer_science), to know more about reification visit this [post](http://gafter.blogspot.com.es/2006/11/reified-generics-for-java.html).
 
 ##Installation
@@ -152,5 +152,12 @@ More information on the [Official page](http://kotlinlang.org/docs/reference/ext
 ## Conclusion
 To be honest, as I mentioned before, my adventure with Kotlin has been short, I only made some programming doing the koans but I a really like it and I think it gives new opportunities to Java.
 I hope you like the post and thank for reading it!
+
+## References:
+
+* [Kotlin official web](https://kotlinlang.org/)
+* Antonio's Leiva blog [Kotlin for Android(1)](http://antonioleiva.com/kotlin-for-android-introduction/)
+* Square Internal Doc: [Using Project Kotlin for Android](https://docs.google.com/document/d/1ReS3ep-hjxWA8kZi0YqDbEhCqTt29hG8P44aA9W0DM8/preview?hl=es&forcehl=1&pli=1#heading=h.v6i4iyf7kkxh)
+* [Five reasons why you should rejoice about Kotlin](http://beust.com/weblog/2011/07/20/five-reasons-why-should-rejoice-about-kotlin/)
 
 

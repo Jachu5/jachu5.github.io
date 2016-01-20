@@ -20,7 +20,7 @@ The tool includes a fantastic tutorial, which will guide you through different s
   <img src ="../medias/IMG/SonicPi/Sonicpi_main_screenshoot.png" style="width: 80%" >
 </p>
 
-No doubt this a very interesting tools to develop our artistic sense and have fun, but it is a specially interesting for teaching music at school.
+No doubt this a very interesting tools to develop our artistic sense and have fun, but it is a specially interesting tool to teach music at school.
 
 Here you got a video of a TED talk where Sam explains the project.  
   

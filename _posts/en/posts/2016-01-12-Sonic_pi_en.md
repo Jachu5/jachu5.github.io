@@ -7,7 +7,7 @@ name: SonicPi
   <img src ="http://sonic-pi.net/images/logo.png" height="30%" width="30%">
 </p>
 
-I have been always interested in music, but I've never had success with it. I've tried with a couple of instruments (guitar and piano), but my musical ear is noexistent, but anyway, I don't give up with the music.
+I have been always interested in music, but I've never had success with it. I've tried with a couple of instruments (guitar and piano), but my musical ear is noexistent, anyway, I don't give up with music.
 Because of that, a time ago, I started to try with digital audio tools, like [FL Studio](https://www.image-line.com/flstudio/), but again, they require some musical notions which I lack.
 
 Recently, by chance, I found [SonicPi](http://sonic-pi.net/), a tool to compose music that we can include inside a group called  [creative coding (https://en.wikipedia.org/wiki/Creative_coding) along with other frameworks such as [Processing](https://processing.org/). Creative coding it is a long-lived community which I believe they do one of the most beautiful things you can do with technology; to create experiences instead of functionality.
